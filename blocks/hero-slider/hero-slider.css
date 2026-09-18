@@ -1,0 +1,184 @@
+/* Block: hero-slider -- design migrated from aliorbank.pl .hero-main-slider */
+
+/* Full-bleed section: override EDS section max-width/padding */
+.hero-slider-container .hero-slider-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+/* Visually-hidden page title (accessibility only) — the source keeps the
+   "Alior Bank" h1 for screen readers but does not display it. */
+.hero-slider-container .default-content-wrapper h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.hero-slider {
+  position: relative;
+  background-color: var(--light-color); /* rgb(247, 247, 248) */
+  padding: 16px 24px;
+}
+
+/* Tab strip -- pill container with segmented buttons.
+   Left edge aligns with the centered slide content (same gutter). */
+.hero-slider .hero-slider-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  width: fit-content;
+  margin: 16px 0 0;
+  margin-left: max(0px, calc((100% - 1280px) / 2));
+  padding: 4px;
+  background-color: #dedee3;
+  border-radius: 8px;
+}
+
+.hero-slider .hero-slider-tab {
+  border: 0;
+  background: transparent;
+  color: #5e5e6e;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.hero-slider .hero-slider-tab[aria-selected='true'] {
+  background-color: var(--background-color); /* #fff */
+  color: var(--text-color); /* #000 */
+  font-weight: 700;
+}
+
+/* Slides */
+.hero-slider .hero-slider-slides {
+  position: relative;
+}
+
+.hero-slider .hero-slider-slide {
+  display: none;
+}
+
+.hero-slider .hero-slider-slide.active {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
+  padding: 24px 0 0;
+
+  /* Centered content container matching the source ~1304px row */
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Content column */
+.hero-slider .hero-slider-content {
+  z-index: 1;
+}
+
+.hero-slider .hero-slider-content h2 {
+  margin: 0 0 16px;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl); /* 36px mobile / 48px desktop */
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--text-color);
+}
+
+.hero-slider .hero-slider-content p {
+  margin: 0 0 16px;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--text-color);
+}
+
+/* CTA button row */
+.hero-slider .hero-slider-content p:has(a.button) {
+  display: inline-flex;
+  margin: 8px 8px 0 0;
+}
+
+/* Buttons -- source uses larger radius/padding than global buttons */
+.hero-slider .hero-slider-content a.button:any-link {
+  margin: 0;
+  border: 2px solid var(--link-color); /* #79003c */
+  border-radius: 16px;
+  padding: 14px 40px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero-slider .hero-slider-content a.button.primary:any-link {
+  background-color: var(--link-color); /* #79003c */
+  border-color: var(--link-color);
+  color: var(--background-color); /* #fff */
+}
+
+.hero-slider .hero-slider-content a.button.primary:hover,
+.hero-slider .hero-slider-content a.button.primary:focus-visible {
+  background-color: var(--link-hover-color); /* #a30051 */
+  border-color: var(--link-hover-color);
+  color: var(--background-color);
+}
+
+.hero-slider .hero-slider-content a.button.secondary:any-link {
+  background-color: transparent;
+  border-color: var(--link-color);
+  color: var(--link-color);
+}
+
+.hero-slider .hero-slider-content a.button.secondary:hover,
+.hero-slider .hero-slider-content a.button.secondary:focus-visible {
+  background-color: transparent;
+  border-color: var(--link-hover-color);
+  color: var(--link-hover-color);
+}
+
+/* Media column */
+.hero-slider .hero-slider-media picture,
+.hero-slider .hero-slider-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (width >= 900px) {
+  .hero-slider {
+    padding: 16px 32px;
+  }
+
+  .hero-slider .hero-slider-slide.active {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    padding: 32px 0 0;
+  }
+
+  .hero-slider .hero-slider-content h2 {
+    margin: 0 0 24px;
+    line-height: 1.17; /* ~56px at 48px */
+  }
+
+  .hero-slider .hero-slider-content p {
+    font-size: 24px;
+    line-height: 1.33; /* 32px at 24px */
+    margin: 0 0 32px;
+  }
+
+  .hero-slider .hero-slider-content a.button:any-link {
+    padding: 14px 48px;
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,259 @@
+/*
+ * widget-calculator — design migrated from aliorbank.pl (.calculator-pmt).
+ * All visual values extracted from source computed styles @1440.
+ *
+ * Source layout: a WHITE section (not grey). Heading centred on top. Below it a
+ * two-column row (space-between): the sliders on the left (~52%), and a GREY
+ * (#f7f7f8) rounded result card on the right (~43%). Each field is a label on
+ * its own line, then a full-width bordered value box (number left / unit right),
+ * then the range slider, then the min/max bounds.
+ */
+
+/* Source section is white; the grey lives only in the result card. Neutralise
+   the authored `grey` section background for this block (equal specificity to
+   styles.css `.section.grey`, but this file loads later so it wins). */
+main .section.widget-calculator-container.grey {
+  background-color: var(--background-color);
+}
+
+.widget-calculator {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* Title — source 48/56 weight 900, centred, mb 56 (32 mobile) */
+.widget-calculator .widget-calculator-title {
+  grid-column: 1 / -1;
+  margin: 0 0 32px;
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 900;
+  line-height: 1.16;
+  text-align: center;
+}
+
+/* ---- Controls column ---- */
+.widget-calculator .widget-calculator-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.widget-calculator .widget-calculator-field {
+  display: flex;
+  flex-direction: column;
+}
+
+/* label sits on its own line above the value box — source 16/24/400 */
+.widget-calculator .widget-calculator-field-label {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--text-color);
+}
+
+/* full-width bordered value box: number left, unit right
+   (source .input-wrapper: 1px solid rgb(205,205,213), radius 12px) */
+.widget-calculator .widget-calculator-inputbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 16px;
+  border: 1px solid rgb(205 205 213);
+  border-radius: 12px;
+  background-color: var(--background-color);
+}
+
+.widget-calculator .widget-calculator-value {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--text-color);
+}
+
+.widget-calculator .widget-calculator-unit {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: rgb(94 94 110);
+}
+
+/* ---- Range slider (native input[type=range]) ----
+   source track: rgb(222,222,227) 16px tall, radius 8px
+   source knob: white circle, 2px solid magenta (link-color) */
+.widget-calculator input[type='range'] {
+  appearance: none;
+  width: 100%;
+  height: 16px;
+  margin: 16px 0 0;
+  border-radius: 8px;
+
+  /* filled portion painted by JS via linear-gradient; fallback track colour: */
+  background: rgb(222 222 227);
+  cursor: pointer;
+}
+
+.widget-calculator input[type='range']::-webkit-slider-runnable-track {
+  height: 16px;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.widget-calculator input[type='range']::-moz-range-track {
+  height: 16px;
+  border-radius: 8px;
+  background: rgb(222 222 227);
+}
+
+.widget-calculator input[type='range']::-moz-range-progress {
+  height: 16px;
+  border-radius: 8px;
+  background: var(--link-color);
+}
+
+.widget-calculator input[type='range']::-webkit-slider-thumb {
+  appearance: none;
+  width: 32px;
+  height: 32px;
+  margin-top: -8px;
+  border: 2px solid var(--link-color);
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
+  cursor: pointer;
+}
+
+.widget-calculator input[type='range']::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--link-color);
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
+  cursor: pointer;
+}
+
+.widget-calculator input[type='range']:focus-visible {
+  outline: 2px solid var(--link-hover-color);
+  outline-offset: 4px;
+}
+
+/* min/max bounds — source 16px black */
+.widget-calculator .widget-calculator-range-bounds {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+/* ---- Result panel ----
+   Source is a grey (#f7f7f8) rounded card sitting on the white section.
+   Radius/padding are the source values (32px / 32px). */
+.widget-calculator .widget-calculator-result {
+  padding: 32px;
+  border-radius: 32px;
+  background-color: var(--light-color);
+}
+
+/* small tertiary toggle at the top of the card (source "+ sprawdź koszt") */
+.widget-calculator .widget-calculator-costnote {
+  display: inline-block;
+  margin: 0 0 16px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  color: rgb(94 94 110);
+  cursor: pointer;
+}
+
+.widget-calculator .widget-calculator-costnote:hover {
+  color: var(--link-color);
+}
+
+/* result label — source results-title 24/700/32, mb 16 */
+.widget-calculator .widget-calculator-result-label {
+  margin: 0 0 16px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--text-color);
+}
+
+/* installment — source 32/700/38, magenta */
+.widget-calculator .widget-calculator-installment {
+  margin: 0 0 16px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  color: var(--link-color);
+}
+
+/* meta list — source details-list li 18/400/28, no bullets */
+.widget-calculator .widget-calculator-meta {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+.widget-calculator .widget-calculator-meta li {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  color: var(--text-color);
+}
+
+/* disclaimer under the meta list — source 14/400/22 muted */
+.widget-calculator .widget-calculator-disclaimer {
+  margin: 0 0 24px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  color: rgb(94 94 110);
+}
+
+/* CTAs (rendered only when authored) — source primary button:
+   magenta bg, white text, 14px 48px padding, radius 16px, 20px/700 */
+.widget-calculator .widget-calculator-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.widget-calculator .widget-calculator-actions a.button:any-link {
+  border-radius: 16px;
+  padding: 14px 48px;
+  font-size: 20px;
+  font-weight: 700;
+  border: 2px solid var(--link-color);
+  background-color: var(--link-color);
+  color: var(--background-color);
+}
+
+.widget-calculator .widget-calculator-actions a.button:any-link:hover {
+  border-color: var(--link-hover-color);
+  background-color: var(--link-hover-color);
+  color: var(--background-color);
+  text-decoration: none;
+}
+
+/* ---- Desktop: two columns, sliders left (~52%), grey card right (~43%) ---- */
+@media (width >= 900px) {
+  .widget-calculator {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 56px;
+    align-items: stretch;
+  }
+
+  .widget-calculator .widget-calculator-title {
+    margin-bottom: 56px;
+    line-height: 1.16;
+  }
+}

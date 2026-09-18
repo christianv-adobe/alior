@@ -1,0 +1,10 @@
+{
+  "variantName": "columns-feature",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Two-column brand statement: large heading + paragraph + CTA beside a large lifestyle photo. Light color scheme, 2x1 layout.",
+  "contentPattern": "One row, two columns: text column (heading, paragraph, CTA) and image column (large photo).",
+  "usage": "Editorial two-column feature pairing a brand statement with a large photo.",
+  "options": ["image-first"],
+  "memberVariantIds": ["columns-feature"]
+}

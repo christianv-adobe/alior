@@ -1,0 +1,10 @@
+{
+  "variantName": "cards-highlight",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Three-up compact promo highlight boxes overlapping the hero via negative margin. No images; light color scheme, minimal density, arrow CTA links.",
+  "contentPattern": "One row per box: heading, short text, arrow CTA link.",
+  "usage": "Compact three-column highlight strip for promoting key products.",
+  "options": [],
+  "memberVariantIds": ["cards-highlight"]
+}

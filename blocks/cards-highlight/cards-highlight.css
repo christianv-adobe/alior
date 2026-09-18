@@ -1,0 +1,92 @@
+/* cards-highlight — three promo boxes with arrow CTAs overlapping the hero.
+   Values extracted from source computed styles (.highlight-box on aliorbank.pl). */
+
+/* The section shares the hero's light-grey field (not white) — the promo
+   boxes sit on the same continuous background as the hero above. */
+.cards-highlight-container {
+  background-color: var(--light-color);
+}
+
+.cards-highlight > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* card = source .highlight-box */
+.cards-highlight > ul > li.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 24px;
+  box-shadow: rgb(7 7 7 / 8%) 0 8px 30px 0;
+}
+
+/* title link = source .highlight-box-title inside .highlight-box-link */
+.cards-highlight .title {
+  display: block;
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #000;
+  text-decoration: none;
+}
+
+.cards-highlight .title:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+/* description = source .highlight-box-text */
+.cards-highlight .text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: rgb(56 56 66);
+}
+
+/* circular arrow CTA bottom-right (source .highlight-box-row action) */
+.cards-highlight .cards-highlight-arrow {
+  align-self: flex-end;
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fce4ee;
+  color: var(--link-color);
+  font-size: 20px;
+  line-height: 1;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.cards-highlight .cards-highlight-arrow:hover {
+  background-color: #f9cddf;
+  color: var(--link-hover-color);
+  text-decoration: none;
+}
+
+/* Overlap the hero above, mirroring source offset-wrapper (top: -188px). */
+@media (width >= 900px) {
+  .cards-highlight > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Higher specificity than styles.css `main > .section > div { margin: auto }`
+     so the negative top margin (hero overlap) actually applies. */
+  .cards-highlight-container > .cards-highlight-wrapper {
+    position: relative;
+    z-index: 2;
+    margin-top: -188px;
+  }
+}

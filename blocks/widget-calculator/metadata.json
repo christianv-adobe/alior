@@ -1,0 +1,10 @@
+{
+  "variantName": "widget-calculator",
+  "baseBlock": "widget",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Loan-installment calculator: dual range sliders (amount, term) beside a live result panel showing the computed installment, RRSO/commission and CTAs. Config-driven interactive widget; light color scheme.",
+  "contentPattern": "Key | value config rows (amount/term ranges, rate, rrso, labels, currency) plus CTA links; renders two sliders and a live result panel.",
+  "usage": "Interactive loan/installment calculator with live-updating estimated payment.",
+  "options": [],
+  "memberVariantIds": ["widget-calculator"]
+}

@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "https://www.aliorbank.pl/",
+  "path": "index",
+  "timestamp": "2026-09-17T17:09:33.208Z",
+  "title": "Kredyt, pożyczka, konto, lokata, bankowość mobilna - Alior Bank",
+  "template": "home",
+  "blocks": [
+    "hero-slider",
+    "cards-highlight",
+    "cards-bento",
+    "carousel-overlay",
+    "carousel-offers",
+    "carousel-offers",
+    "widget-calculator",
+    "columns-feature",
+    "cards-articles"
+  ]
+}
