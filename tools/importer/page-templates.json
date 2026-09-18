@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://www.aliorbank.pl/"
+      ],
+      "representativeUrl": "https://www.aliorbank.pl/",
+      "urlPattern": "/",
+      "description": "Alior Bank homepage: tabbed hero, highlight boxes, bento grid, image-overlay carousel, offers carousel, loan calculator, two-column feature and article cards.",
+      "blocks": [
+        {
+          "name": "hero-slider",
+          "instances": [".hero-main-slider"]
+        },
+        {
+          "name": "cards-highlight",
+          "instances": [".highlight-boxes"]
+        },
+        {
+          "name": "cards-bento",
+          "instances": [".bento-boxes__wrapper", ".bento-boxes__slider"]
+        },
+        {
+          "name": "carousel-overlay",
+          "instances": ["#alior-mobile", ".image-overlay-section"]
+        },
+        {
+          "name": "carousel-offers",
+          "instances": [".benefits-section-2 .swiper", ".benefits-section-2"]
+        },
+        {
+          "name": "widget-calculator",
+          "instances": [".calculator-pmt"]
+        },
+        {
+          "name": "columns-feature",
+          "instances": [".header-photo-big"]
+        },
+        {
+          "name": "cards-articles",
+          "instances": [".articles-widget"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-hero",
+          "name": "Hero slider",
+          "selector": [".hero-main-slider", "#main > section.hero-main-slider"],
+          "style": null,
+          "blocks": ["hero-slider"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-highlight",
+          "name": "Highlight boxes",
+          "selector": [".highlight-boxes", "#main > section.highlight-boxes"],
+          "style": null,
+          "blocks": ["cards-highlight"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-bento",
+          "name": "Bento boxes",
+          "selector": [".bento-boxes", "#main > section.bento-boxes"],
+          "style": null,
+          "blocks": ["cards-bento"],
+          "defaultContent": [".bento-boxes__header"]
+        },
+        {
+          "id": "section-mobile",
+          "name": "Alior mobile overlay carousel",
+          "selector": ["#alior-mobile", ".image-overlay-section"],
+          "style": null,
+          "blocks": ["carousel-overlay"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-benefits",
+          "name": "Offers carousel",
+          "selector": [".benefits-section-2", "#main > section.benefits-section-2"],
+          "style": null,
+          "blocks": ["carousel-offers"],
+          "defaultContent": [".benefits-section-2 h2", ".benefits-section-2 h3"]
+        },
+        {
+          "id": "section-calculator",
+          "name": "Loan calculator",
+          "selector": [".calculator-pmt", "#main > section.calculator-pmt"],
+          "style": "grey",
+          "blocks": ["widget-calculator"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-feature",
+          "name": "Two-column feature",
+          "selector": [".header-photo-big", "#main > section.header-photo-big"],
+          "style": null,
+          "blocks": ["columns-feature"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-articles",
+          "name": "Article cards",
+          "selector": [".articles-widget", "#main > section.articles-widget"],
+          "style": "grey",
+          "blocks": ["cards-articles"],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "variantName": "cards-bento",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Bento-style promo tiles of varying sizes with images, labels/tags and CTAs. Masonry-like layout, image-heavy, light color scheme.",
+  "contentPattern": "One row per tile: image, heading, optional tag/label, CTA. Optional size hint (large/wide/tall) on the tile.",
+  "usage": "Editorial bento grid promoting a mix of products with varied tile sizes.",
+  "options": [],
+  "memberVariantIds": ["cards-bento"]
+}

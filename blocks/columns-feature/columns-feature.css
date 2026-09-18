@@ -1,0 +1,104 @@
+/* columns-feature — two-column brand statement.
+   Values extracted from source .header-photo-big computed styles. */
+
+.columns-feature > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.columns-feature .columns-feature-text-col {
+  order: 0;
+}
+
+.columns-feature .columns-feature-img-col {
+  order: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.columns-feature img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.columns-feature h2 {
+  margin: 0 0 24px;
+  font-family: var(--heading-font-family);
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 60px;
+  color: var(--text-color);
+}
+
+.columns-feature .columns-feature-text-col p {
+  margin: 0 0 32px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-color);
+}
+
+/* CTA — matches source solid pill button (bg #79003c = --link-color) */
+.columns-feature .columns-feature-text-col p.button-container {
+  margin: 0;
+}
+
+main .columns-feature a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 14px 48px;
+  border: 2px solid var(--link-color);
+  border-radius: 16px;
+  background-color: var(--link-color);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  white-space: normal;
+}
+
+main .columns-feature a.button:any-link:hover,
+main .columns-feature a.button:any-link:focus-visible {
+  border-color: var(--link-hover-color);
+  background-color: var(--link-hover-color);
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (width >= 900px) {
+  .columns-feature > div {
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .columns-feature .columns-feature-text-col,
+  .columns-feature .columns-feature-img-col {
+    flex: 1;
+    order: unset;
+  }
+
+  .columns-feature .columns-feature-text-col {
+    padding: 96px 0;
+  }
+
+  .columns-feature.image-first .columns-feature-img-col {
+    order: -1;
+  }
+
+  .columns-feature h2 {
+    margin: 0 0 24px;
+    font-size: 68px;
+    line-height: 82px;
+  }
+
+  .columns-feature .columns-feature-text-col p {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}

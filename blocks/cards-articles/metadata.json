@@ -1,0 +1,10 @@
+{
+  "variantName": "cards-articles",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Article/news teaser cards (no images): date, title, excerpt, 'read more' CTA, grouped into two thematic columns. Light/grey container.",
+  "contentPattern": "Optional group-header row (heading + 'see all' link) followed by teaser rows: date, title, excerpt, read-more CTA.",
+  "usage": "Two-column list of dated article/news teasers grouped by theme.",
+  "options": [],
+  "memberVariantIds": ["cards-articles"]
+}

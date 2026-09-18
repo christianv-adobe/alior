@@ -1,0 +1,212 @@
+/* cards-bento — asymmetric bento grid of promo tiles.
+ * Values extracted from source: aliorbank.pl ".bento-boxes__wrapper" @1440px.
+ *
+ * Source layout (desktop): a 4-column grid over a fine 9-row track grid, gap 24px.
+ *   - main tile   : grid-area span 9 / span 2  (tall, left) — content defines height
+ *   - two verticals: grid-area span 5 / span 1  (top-right)
+ *   - wide tile    : grid-area span 4 / span 2  (bottom-right, text left / image right)
+ * The main tile's content (text + full-width image) sets the total height; the
+ * fractional row track then makes the verticals ~5/9 and the wide ~4/9 of it —
+ * a masonry-like distribution, NOT forced-equal rows.
+ *
+ * Tiles: main has bg #f7f7f8 + 2px solid rgb(255,196,38) + radius 24px; the other
+ * tiles are white with a 1px rgb(222,222,227) border + radius 16px. Badge is a
+ * yellow rgb(255,196,38) pill. Headings 36/44 800; description 18/28 400.
+ */
+
+.cards-bento > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* --- tile surface (default: non-main tiles, matches source) --- */
+.cards-bento > ul > li {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgb(222 222 227);
+  border-radius: 16px;
+  background-color: var(--background-color);
+}
+
+/* main / featured tile surface */
+.cards-bento > ul > li.large {
+  border: 2px solid rgb(255 196 38);
+  border-radius: 24px;
+  background-color: var(--light-color);
+}
+
+/* --- body (text) sits at the top --- */
+.cards-bento .cards-bento-card-body {
+  order: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-bento .cards-bento-card-body > * {
+  margin: 0;
+}
+
+.cards-bento .cards-bento-card-body > * + * {
+  margin-top: 8px;
+}
+
+/* Legal-note disclosure trigger ("+ nota prawna") — small tertiary control */
+.cards-bento .cards-bento-note {
+  align-self: flex-start;
+  margin-top: 12px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--link-color);
+  cursor: pointer;
+}
+
+.cards-bento .cards-bento-note:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* tag / label (e.g. "Reklama") — small uppercase text */
+.cards-bento .cards-bento-card-tag {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  text-transform: uppercase;
+  color: rgb(90 90 90);
+  letter-spacing: 0.02em;
+}
+
+/* featured badge (e.g. "POLECAMY") — yellow pill */
+.cards-bento .cards-bento-card-tag.featured {
+  align-self: flex-start;
+  background-color: rgb(255 196 38);
+  color: var(--text-color);
+  padding: 8px 16px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+/* title (styled from source h2) */
+.cards-bento .cards-bento-card-title {
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.cards-bento .cards-bento-card-title a:any-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.cards-bento .cards-bento-card-title a:hover {
+  text-decoration: underline;
+}
+
+/* description */
+.cards-bento .cards-bento-card-body p:not(.cards-bento-card-tag, .cards-bento-card-title) {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  color: var(--text-color);
+}
+
+/* --- image fills the bottom of the tile --- */
+.cards-bento .cards-bento-card-image {
+  order: 2;
+  margin-top: auto;
+  line-height: 0;
+  min-height: 0;
+}
+
+.cards-bento .cards-bento-card-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* --- desktop bento layout --- */
+@media (width >= 900px) {
+  .cards-bento > ul {
+    grid-template-columns: repeat(3, 1fr) 1.24fr;
+    grid-template-rows: repeat(9, 1fr);
+    grid-auto-flow: dense;
+  }
+
+  /* main featured tile: 2 columns wide, full height (span 9 rows) */
+  .cards-bento > ul > li.large {
+    grid-column: span 2;
+    grid-row: span 9;
+  }
+
+  /* vertical tiles (neither large nor wide): 1 column, 5 of 9 rows */
+  .cards-bento > ul > li:not(.large, .wide) {
+    grid-row: span 5;
+  }
+
+  /* wide tile: 2 columns, 4 of 9 rows, laid out as text | image */
+  .cards-bento > ul > li.wide {
+    grid-column: span 2;
+    grid-row: span 4;
+    flex-direction: row;
+  }
+
+  /* larger headline on the main tile (source 36/44) */
+  .cards-bento > ul > li.large .cards-bento-card-title {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .cards-bento > ul > li.large .cards-bento-card-body {
+    padding: 24px 32px;
+  }
+
+  .cards-bento > ul > li.large .cards-bento-card-body > * + * {
+    margin-top: 16px;
+  }
+
+  /* main tile: image keeps its natural height, flush at the bottom (no crop) */
+  .cards-bento > ul > li.large .cards-bento-card-image {
+    flex: 0 0 auto;
+  }
+
+  .cards-bento > ul > li.large .cards-bento-card-image img {
+    height: auto;
+  }
+
+  /* vertical tiles: image grows to fill the remaining height (cover crop) */
+  .cards-bento > ul > li:not(.large, .wide) .cards-bento-card-image {
+    flex: 1 1 auto;
+  }
+
+  .cards-bento > ul > li:not(.large, .wide) .cards-bento-card-image img {
+    height: 100%;
+  }
+
+  /* wide tile: body on the left, image on the right, each half the width */
+  .cards-bento > ul > li.wide .cards-bento-card-body {
+    flex: 1 1 50%;
+    order: 1;
+    justify-content: flex-start;
+  }
+
+  .cards-bento > ul > li.wide .cards-bento-card-image {
+    order: 2;
+    flex: 1 1 50%;
+    margin-top: 0;
+  }
+
+  .cards-bento > ul > li.wide .cards-bento-card-image img {
+    height: 100%;
+  }
+}

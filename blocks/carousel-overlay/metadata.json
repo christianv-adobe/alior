@@ -1,0 +1,10 @@
+{
+  "variantName": "carousel-overlay",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Full-bleed image-overlay carousel with text/CTA overlaid on photographic slides. Dark/photographic color scheme, immersive, with slide navigation and indicators.",
+  "contentPattern": "One row per slide: background image cell, then content cell (heading, paragraph, CTA).",
+  "usage": "Immersive full-bleed rotating banner with overlaid promotional messaging.",
+  "options": [],
+  "memberVariantIds": ["carousel-overlay"]
+}

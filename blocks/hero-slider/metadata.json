@@ -1,0 +1,10 @@
+{
+  "variantName": "hero-slider",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Full-bleed tabbed hero banner. Tab strip above; each slide has a heading, paragraph and two CTA buttons alongside a promotional image. Two tabbed slides.",
+  "contentPattern": "One row per slide: optional tab-label cell, content cell (heading + paragraph + CTA links), optional image cell.",
+  "usage": "Prominent top-of-page banner with switchable promotional slides.",
+  "options": [],
+  "memberVariantIds": ["hero-slider"]
+}

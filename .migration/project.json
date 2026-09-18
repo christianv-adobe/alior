@@ -1,0 +1,11 @@
+{
+  "type": "da",
+  "sites": {
+    "alior": {
+      "previewOrg": "christianv-adobe",
+      "previewSite": "alior",
+      "contentHostUrl": "https://content.da.live/christianv-adobe/alior/",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

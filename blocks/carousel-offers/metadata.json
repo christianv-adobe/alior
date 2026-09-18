@@ -1,0 +1,10 @@
+{
+  "variantName": "carousel-offers",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Horizontally-scrolling multi-card offer carousel with arrow navigation. Light color scheme, card-per-slide with image, tag/RRSO, heading and CTA. Multiple cards visible per viewport.",
+  "contentPattern": "One row per offer card: image, tag/RRSO label, heading, CTA link.",
+  "usage": "Horizontally scrollable row of product/offer cards with prev/next arrows.",
+  "options": [],
+  "memberVariantIds": ["carousel-offers"]
+}
