@@ -195,7 +195,13 @@ async function loadEager(doc) {
   if (main) {
     decorateMain(main);
     document.body.classList.add('appear');
-    await loadSection(main.querySelector('.section'), waitForFirstImage);
+    const firstSection = main.querySelector('.section');
+    // Prioritise the LCP image (first section's first image) so the browser
+    // fetches it ahead of below-the-fold assets. waitForFirstImage sets it
+    // eager; we also flag it high-priority to shorten LCP on mobile.
+    const lcpImg = firstSection && firstSection.querySelector('img');
+    if (lcpImg) lcpImg.setAttribute('fetchpriority', 'high');
+    await loadSection(firstSection, waitForFirstImage);
   }
 
   try {

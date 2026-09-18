@@ -42,7 +42,13 @@ export default function decorate(block) {
         cell.classList.add('hero-slider-media');
         const img = pic.querySelector('img');
         if (img) {
-          const optimized = createOptimizedPicture(img.src, img.alt, i === 0, [{ width: '750' }]);
+          const eager = i === 0;
+          const optimized = createOptimizedPicture(img.src, img.alt, eager, [{ width: '750' }]);
+          // First slide holds the LCP image: hint the browser to fetch it first.
+          if (eager) {
+            const optImg = optimized.querySelector('img');
+            if (optImg) optImg.setAttribute('fetchpriority', 'high');
+          }
           pic.replaceWith(optimized);
         }
       } else {
